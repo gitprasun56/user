@@ -14,4 +14,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 	
 	@Query("select gender,count(gender) from  UserEntity group by gender")
 	public List<Object[]> findTypeAndFindCount();
+
+	public UserEntity findByEmail(String email);
 }

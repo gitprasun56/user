@@ -8,9 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.prasun.entities.UserEntity;
+import com.prasun.repos.UserRepository;
 import com.prasun.service.UserService;
 
 @Controller
@@ -18,6 +20,9 @@ public class UserController {
 
 	@Autowired
 	private UserService service;
+	
+	@Autowired
+	private UserRepository userRepo;
 	
 	@RequestMapping("/showCreate")
 	public String showCreate() {
@@ -56,5 +61,17 @@ public class UserController {
 		List<UserEntity> users = service.getAllUser();
 		model.addAttribute("users", users);
 		return "displayUsers";
+	}
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(@RequestParam("email")String email,@RequestParam("password") String password, Model model) {
+		UserEntity user=userRepo.findByEmail(email);
+		if(user.getPassword().equals(password)) {
+			return "welcome";
+		}
+		else {
+			model.addAttribute("msg", "invalid user name or password . Please try again");
+		}
+		return "login";
+		
 	}
 }
