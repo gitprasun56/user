@@ -10,8 +10,7 @@
 
 	<form action="saveUser" method="post">
 		<pre>
-		Id: <input type="text" name="id" /> 
-		First Name: <input type="text"name="firstName" /> 
+		First Name: <input type="text" name="firstName" /> 
 		Last Name: <input type="text" name="lastName">
 		Gender:	Male<input type="radio" name="gender" value="male"/> 
 			Female<input type="radio" name="gender" value="Female"/> 

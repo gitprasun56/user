@@ -20,14 +20,14 @@
 <th>Email</th>
 <th>Operation</th>
 </tr>
-<c:forEach items="${user}" var="users">
+<c:forEach items="${users}" var="user">
 <tr>
-<td>${users.id}</td>
-<td>${users.firstName}</td>
-<td>${users.lastName}</td>
-<td>${users.gender}</td>
-<td>${users.email}</td>
-<td><a href="editUser?id=${users.id}">Edit</a></td>
+<td>${user.id}</td>
+<td>${user.firstName}</td>
+<td>${user.lastName}</td>
+<td>${user.gender}</td>
+<td>${user.email}</td>
+<td><a href="editUser?id=${user.id}">Edit</a></td>
 </tr>
 </c:forEach>
 </table>

@@ -12,11 +12,12 @@
 
 	<form action="updateUser" method="post">
 		<pre>
-		Id: <input type="text" name="id" value="${users.id }" readonly/> 
-		First Name: <input type="text"name="firsteName" value="${users.firstName}" /> 
-		Last Name: <input type="text" name="lastName" value="${users.lastName}">
-		Gender:	Male<input type="radio" name="type" value="male" ${users.gender=='male'?'Checked':''}/> 
-			Female<input type="radio" name="type" value="female" ${users.gender=='female'?'Checked':''}/> 
+		Id: <input type="text" name="id" value="${users.id}" readonly/> 
+		First Name: <input type="text"  name="firsteName" value="${users.firstName}"/> 
+		Last Name: <input type="text" name="lastName" value="${users.lastName}"/>
+		Gender:	Male<input type="radio" name="gender" value="male" ${users.gender=='male'?'Checked':''}/> 
+			Female<input type="radio" name="gender" value="female" ${users.gender=='female'?'Checked':''}/>
+			Email<input type="text" name="email" value="${users.email}"/> 
 				<input type="submit" value="Save" />
 		</pre>
 	</form>
